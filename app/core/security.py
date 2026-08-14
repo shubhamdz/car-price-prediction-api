@@ -3,7 +3,7 @@ from jose import JWTError, jwt
 from app.core.config import settings
 
 
-def create_token(data: dict, expire_mintues: int):
+def create_token(data: dict, expire_mintues = 30):
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + timedelta(minutes=expire_mintues)
     to_encode.update({'exp': expire})
